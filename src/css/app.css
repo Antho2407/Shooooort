@@ -38,6 +38,11 @@ th, td {
     font-size: 47px;
 }
 
+#button-validate.disabled{
+  background-color: #E0E0E0;
+  color:#BFBFBF;
+}
+
 #button-validate{
     background-color: #EB4A42;
     color: #FFF;
@@ -61,10 +66,6 @@ th, td {
   display: inline-block;
   float: none;
   vertical-align: middle;
-}
-
-.section h1{
-  font-size: 22px;
 }
 
 .url-body{
@@ -139,6 +140,10 @@ th{
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
+    h1.section{
+      font-size: 22px;
+    }
+
     body{
         width: 50%;
         height: 75%;

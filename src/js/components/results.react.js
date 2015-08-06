@@ -9,6 +9,9 @@ var Header = React.createClass({
 					<div className="six columns">
 						<h1 className="section">Previously shortened by you</h1>
 					</div>
+					<div className="six columns">
+						<a className="button-clear text-accent">Clear history</a>
+					</div>
 				</div>
 	    		<table className="u-full-width">
 				  <thead>
