@@ -15,6 +15,7 @@
     "object-assign": "^3.0.0",
     "react": "^0.13.0",
     "react-widgets": "^2.6.0",
+    "request": "^2.60.0",
     "requirejs-plugins": "^1.0.2",
     "velocity-animate": "^1.2.2",
     "vinyl-source-stream": "^1.1.0"

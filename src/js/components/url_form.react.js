@@ -1,21 +1,24 @@
 var React = require('react');
+var UrlActions = require('../actions/UrlActions');
 
 var Header = React.createClass({
 
 	getInitialState: function() {
-    	return {value: ""};
+    	return {value: "", disabled: "disabled"};
 	},
 
 	handleChange: function(event) {
 		var input = event.target.value;
 		if(input==""){
-			$("#button-validate").attr("disabled", "disabled");
-			console.log("test" + input);
+			this.setState({disabled:"disabled"});
 		}else{
-			$("#button-validate").removeAttr("disabled");
-			console.log("test2" + input);
+			this.setState({disabled:""});
 		}
 	    this.setState({value: event.target.value});
+	},
+
+	handleClickAdd: function(input) {
+		UrlActions.add(input);
 	},	
 
 	render: function() {
@@ -25,7 +28,7 @@ var Header = React.createClass({
 	    			<input type="text" id="input-url" name="input-url" value={this.state.value} onChange={this.handleChange}></input>
 	    		</div>    
 	    		<div className="text-secondary three text-right">
-	    			<button id="button-validate" disabled="disabled">Shorten this link</button>
+	    			<button id="button-validate" disabled={this.state.disabled} onClick={this.handleClickAdd.bind(this, this.state.value)}>Shorten this link</button>
 	    		</div>
 			</div>
     	);
