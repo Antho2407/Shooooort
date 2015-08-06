@@ -30,6 +30,10 @@ input, button{
   border-radius : 3px;
 }
 
+th, td {
+    border-bottom: none;
+}
+
 #logo{
     font-size: 47px;
 }
@@ -49,7 +53,7 @@ input, button{
 .omega{
    display: inline-block;
    float: none;
-   margin-left: 0;
+   /*margin-left: 0;*/
    vertical-align: middle;
 }
 
@@ -89,8 +93,10 @@ input, button{
   color: #EB4A42;
 }
 
-.all-caps{
+th{
   text-transform: uppercase;
+  font-size: 14px;
+  color: #AAA;
 }
 
 .text-right{

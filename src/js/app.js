@@ -4,6 +4,7 @@ window.React = React;
 
 var Header = require('./components/header.react');
 var UrlForm = require('./components/url_form.react');
+var Results = require('./components/results.react');
 
 var App = React.createClass({
 
@@ -12,6 +13,7 @@ var App = React.createClass({
 			<div id="container" className="w3-center">
                 <Header/>
                 <UrlForm/>
+                <Results/>
 			</div>
     	);
    }
