@@ -38,7 +38,7 @@ th, td {
     font-size: 47px;
 }
 
-#button-validate.disabled{
+#button-validate:disabled{
   background-color: #E0E0E0;
   color:#BFBFBF;
 }

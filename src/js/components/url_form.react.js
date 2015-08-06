@@ -9,10 +9,10 @@ var Header = React.createClass({
 	handleChange: function(event) {
 		var input = event.target.value;
 		if(input==""){
-			$("#button-validate").addClass("disabled");
+			$("#button-validate").attr("disabled", "disabled");
 			console.log("test" + input);
 		}else{
-			$("#button-validate").removeClass("disabled");
+			$("#button-validate").removeAttr("disabled");
 			console.log("test2" + input);
 		}
 	    this.setState({value: event.target.value});
@@ -25,7 +25,7 @@ var Header = React.createClass({
 	    			<input type="text" id="input-url" name="input-url" value={this.state.value} onChange={this.handleChange}></input>
 	    		</div>    
 	    		<div className="text-secondary three text-right">
-	    			<button id="button-validate" className="disabled">Shorten this link</button>
+	    			<button id="button-validate" disabled="disabled">Shorten this link</button>
 	    		</div>
 			</div>
     	);
