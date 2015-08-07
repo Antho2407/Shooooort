@@ -3,6 +3,10 @@ var UrlStore = require('../stores/UrlStore');
 var UrlActions = require('../actions/UrlActions');
 var Moment = require('Moment');
 
+var VelocityTransitionGroup = require('../VelocityTransitionGroup');
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
+
 function getUrlState() {
   return UrlStore.getAll();
 }
@@ -29,9 +33,11 @@ var Header = React.createClass({
 	render: function() {
 
 		var items = this.state.url.map(function(item, i) {
+
+			var url_id = item.shortcode;
 			
 			return ( 
-				<tr>
+				<tr className="" key={url_id}>
 			      <td>shooooort.com/<span className="text-accent">{item.shortcode}</span><div className="text-unimportant">{item.original}</div></td>
 			      <td className="text-center">{item.redirectCount}</td>
 			      <td className="text-center">{Moment(item.lastSeenDate).fromNow()}</td>
@@ -52,14 +58,14 @@ var Header = React.createClass({
 	    		<table className="u-full-width">
 				  <thead>
 				    <tr className="all-caps">
-				      <th>Link</th>
-				      <th className="text-center">Visits</th>
-				      <th className="text-center">Last visited</th>
+				      <th className="big-column">Link</th>
+				      <th className="text-center secondary-column">Visits</th>
+				      <th className="text-center secondary-column">Last visited</th>
 				    </tr>
 				  </thead>
-				  <tbody>
-				    {items}
-				  </tbody>
+					  <VelocityTransitionGroup component="tbody" transitionName="slide-forward">
+					    {items}
+					  </VelocityTransitionGroup>
 				</table>
 			</div>
     	);

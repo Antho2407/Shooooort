@@ -8,7 +8,7 @@ var Velocity = require('velocity-animate');
 
 var transitions = {
 	// Forcefeeding: property order = [after, before]
-	'display-plan': {
+	'display-url': {
 		duration: 3000,
 		enter: {
 			opacity: [ 1, 0 ]
@@ -18,7 +18,7 @@ var transitions = {
 		}
 	},
 	'slide-forward': {
-		duration:500,
+		duration: 200,
 		enter: {
 			translateX: [ '0%', '100%' ],
 		},
@@ -58,7 +58,7 @@ var transitions = {
 		}
 	},
 	default: {
-		duration: 1000,
+		duration: 600,
 		enter: {
 			opacity: [ 1, 0 ],
 		},
@@ -82,20 +82,19 @@ var VelocityTransitionGroupChild = React.createClass({
 	componentWillEnter: function(done) {
 		var node = this.getDOMNode();
 		var transition = this._getTransition();
-		$(node).delay(400).velocity("stop").velocity("scroll", { duration: 800, container: $("#rowMessages") }); 
-		// Velocity(
-		// 	node,
-		// 	transition.enter,
-		// 	{
-		// 		duration: transition.duration,
-		// 		complete: function(done) { $(node).velocity("stop").velocity("scroll", { duration: 1000, container: $("#rowMessages") }).velocity({ opacity: 1 }); }
-		// 	});
-		
+		Velocity(
+			node,
+			transition.enter,
+			{
+				duration: transition.duration,
+				complete: done
+			});
 	},
 
 	componentWillLeave: function(done) {
 		var node = this.getDOMNode();
-		var transition = this._getTransition();
+		//var transition = this._getTransition();
+		var transition = transitions.default;
 		Velocity(
 			node,
 			transition.leave,

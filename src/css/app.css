@@ -116,13 +116,25 @@ th{
   text-align: center;
 }
 
+.item-url{
+  display:none;
+}
+
 .vertical-bottom{
-  vertical-align: bottom;
-  margin-bottom: 5px;
+  vertical-align: center;
+  margin-top: 20px;
 }
 
 .basic-margin{
   margin-bottom: 40px;
+}
+
+.big-column{
+  width: 60%;
+}
+
+.secondary-column{
+  width: 20%;
 }
 
 /* Larger than mobile */
@@ -149,9 +161,9 @@ th{
     }
 
     body{
-        width: 50%;
-        height: 75%;
-      }
+      width: 50%;
+      height: 75%;
+    }
 }
 
 /* Larger than Desktop HD */
