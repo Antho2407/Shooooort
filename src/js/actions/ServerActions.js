@@ -7,7 +7,7 @@ var ServerActions = {
       // Dispatch an action containing the categories.
       AppDispatcher.dispatch({
           actionType: UrlConstants.URL_ADD,
-          result: data
+          url: data
       });
   },
   error: function (status) {

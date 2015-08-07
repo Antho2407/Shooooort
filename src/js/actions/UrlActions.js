@@ -8,8 +8,7 @@ var UrlActions = {
   },
   clear: function(type) {
     AppDispatcher.dispatch({
-      actionType: UrlConstants.URL_CLEAR,
-      type : type
+      actionType: UrlConstants.URL_CLEAR
     });
   },
 	init: function() {

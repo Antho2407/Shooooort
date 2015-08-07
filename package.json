@@ -12,6 +12,7 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
     "keymirror": "^0.1.1",
+    "moment": "^2.10.6",
     "object-assign": "^3.0.0",
     "react": "^0.13.0",
     "react-widgets": "^2.6.0",

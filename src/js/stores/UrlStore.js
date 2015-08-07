@@ -10,17 +10,11 @@ var _url = [
 
 function initialize(){
     _url = [];
-    var newItem = {};
-    newItem.text = "Hi ! Anyone there ?";
-    newItem.pseudo = "Anthony Da Mota";
-
-    _url.push(newItem);
-    
     UrlStore.emitChange();
 }
 
 function create(url) {
-    _url.push(url);
+    _url.unshift(url);
     UrlStore.emitChange();
 }
 
@@ -58,7 +52,7 @@ var UrlStore = assign({}, EventEmitter.prototype, {
     switch(action.actionType) {
 
       case UrlConstants.URL_ADD:
-        create(action.type);
+        create(action.url);
         break;
 
       case UrlConstants.URL_CLEAR:
