@@ -1,25 +1,26 @@
 var URL_API = "http://gymia-shorty.herokuapp.com/";
 var URL_API_ADD = "shorten/";
 var request = require('request');
+var ServerActions = require('../actions/ServerActions.js');
 
 var url_call = "";
 
 var ApiUrl = {
-    getShort: function (url) {
-        url_call = URL_API + URL_API_ADD + "?url=" + url;
+    getShort: function (_url) {
+        url_call = URL_API + URL_API_ADD;
         console.log(url_call);
-        return new Promise(function (resolve, reject) {
-            request
-                .post(url_call)
-                .end(function (res) {
-                    console.log(res.status);
-                    if (res.status === 404) {
-                        reject();
-                    } else {
-                        resolve(JSON.parse(res.text));
-                    }
-            });
-        });
+        jQuery.ajax( {
+            url: url_call,
+            contentType: "application/json; charset=utf-8",
+            type: 'POST',
+            data: { url: _url },
+            success: function (data, status, jqXHR) {
+              ServerActions.add(data);
+            },
+            error: function (jqXHR, status) {
+              ServerActions.error(data);
+            }  
+        } );
     }
 }; 
 
