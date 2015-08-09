@@ -10,7 +10,6 @@ var ApiUrl = {
     getShort: function (_url) {
         var that = this;
         url_call = URL_API + URL_API_ADD;
-        console.log(url_call);
         jQuery.ajax( {
             url: url_call,
             contentType: "application/json",
@@ -18,7 +17,6 @@ var ApiUrl = {
             data: JSON.stringify({"url":_url}) ,
             processData: false,
             success: function (data, status, jqXHR) {
-              //ServerActions.add(data);
               data.original = _url;
               ApiUrl.getStats(data);
             },
@@ -30,7 +28,6 @@ var ApiUrl = {
 
     getStats: function(_result){
         url_call = URL_API + _result.shortcode + "/" + URL_API_STATS;
-        console.log("URL GET " + url_call);
         jQuery.ajax( {
             url: url_call,
             contentType: "application/json",

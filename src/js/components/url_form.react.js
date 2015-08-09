@@ -7,6 +7,13 @@ var Header = React.createClass({
     	return {value: "", disabled: "disabled"};
 	},
 
+	handleInput: function(event) {
+        if (event.keyCode == 13) {
+        	event.preventDefault();
+            $('#button-validate').click();
+        }
+    },
+
 	handleChange: function(event) {
 		var input = event.target.value;
 		if(input==""){
@@ -23,11 +30,11 @@ var Header = React.createClass({
 
 	render: function() {
 		return (
-    		<div className="row">
+    		<div className="row row-form">
 	    		<div className="text-accent nine columns">
-	    			<input type="text" id="input-url" name="input-url" value={this.state.value} onChange={this.handleChange}></input>
+	    			<input type="text" id="input-url" name="input-url" placeholder="Paste the link you want to shorten here" onKeyDown={this.handleInput} value={this.state.value} onChange={this.handleChange}></input>
 	    		</div>    
-	    		<div className="text-secondary three text-right">
+	    		<div className="text-secondary three columns text-right">
 	    			<button id="button-validate" disabled={this.state.disabled} onClick={this.handleClickAdd.bind(this, this.state.value)}>Shorten this link</button>
 	    		</div>
 			</div>

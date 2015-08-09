@@ -22,8 +22,10 @@ body{
     font-family: 'Roboto-Light';
     font-size: 16px;
     color: #555555;
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 5%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 input, button{
@@ -35,6 +37,7 @@ th, td {
 }
 
 #logo{
+    font-family: 'Montserrat-Regular';
     font-size: 47px;
 }
 
@@ -46,13 +49,24 @@ th, td {
 #button-validate{
     background-color: #EB4A42;
     color: #FFF;
-    padding: 0 10px;
+    padding: 0 5px;
+    width: 100%;
+    font-size: 0.9em;
 }
 
 #input-url{
   background-color: #EAEAEA;
   width: 100%;
-  color: #AAAAAA;
+  color: #555555;
+}
+
+#table-results{
+  margin-left: -20px;
+}
+
+#table-results th:first-child,
+#table-results td:first-child {
+  padding-left: 20px;
 }
 
 .omega{
@@ -70,6 +84,7 @@ th, td {
 
 .url-body{
   font-family: 'Roboto-Regular';
+  font-size : 16px;
 }
 
 .url-table h1{
@@ -90,12 +105,16 @@ th, td {
 }
 
 .text-accent{
-  font-family: 'Montserrat-Regular';
   color: #EB4A42;
 }
 
 .highlighted {
     border-left: 3px #EB4A42 solid;
+}
+
+.url-click{
+  display:none;
+  margin-left: 15px;
 }
 
 th{
@@ -116,17 +135,17 @@ th{
   text-align: center;
 }
 
-.item-url{
-  display:none;
-}
-
 .vertical-bottom{
   vertical-align: center;
   margin-top: 20px;
 }
 
-.basic-margin{
+.row-header{
   margin-bottom: 40px;
+}
+
+.row-form{
+  margin-bottom: 65px;
 }
 
 .big-column{
@@ -137,33 +156,45 @@ th{
   width: 20%;
 }
 
+@media(max-width: 550px){
+  .text-right, .text-left, #logo{
+      text-align:center;
+  }
+}
+
 /* Larger than mobile */
 @media (min-width: 400px) {
     body{
-        width: 100%;
-        height: 100%;
-      }
+      /*width: 100%;
+      height: 100%;*/
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
 }
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
+  h1 {
+      font-size: 2rem;
+    }
 }
 
 /* Larger than tablet */
 @media (min-width: 750px) {
-
-}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {
-    h1.section{
-      font-size: 22px;
-    }
-
     body{
       width: 50%;
       height: 75%;
     }
+
+    h1{
+      font-size: 22px;
+    }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
 }
 
 /* Larger than Desktop HD */

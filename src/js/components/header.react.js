@@ -4,7 +4,7 @@ var Header = React.createClass({
 
 	render: function() {
 		return (
-    		<div className="row basic-margin">
+    		<div className="row row-header">
 	    		<div id="logo" className="text-accent six columns alpha"><u>Shooooort</u></div>     
 	    		<div className="text-secondary six columns text-right omega vertical-bottom">The link shortener with a long name</div>
 			</div>

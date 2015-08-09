@@ -37,8 +37,8 @@ var Header = React.createClass({
 			var url_id = item.shortcode;
 			
 			return ( 
-				<tr className="" key={url_id}>
-			      <td>shooooort.com/<span className="text-accent">{item.shortcode}</span><div className="text-unimportant">{item.original}</div></td>
+				<tr className="item-url" key={url_id}>
+			      <td><span className="url-body">shooooort.com/</span><span className="text-accent url-body">{item.shortcode}</span><span className="span-click text-accent url-click">Click to copy this link</span><div className="text-unimportant">{item.original}</div></td>
 			      <td className="text-center">{item.redirectCount}</td>
 			      <td className="text-center">{Moment(item.lastSeenDate).fromNow()}</td>
 			    </tr>      
@@ -55,7 +55,7 @@ var Header = React.createClass({
 						<a className="button-clear text-accent" onClick={this.handleClickClear}>Clear history</a>
 					</div>
 				</div>
-	    		<table className="u-full-width">
+	    		<table id="table-results" className="u-full-width">
 				  <thead>
 				    <tr className="all-caps">
 				      <th className="big-column">Link</th>
@@ -73,6 +73,17 @@ var Header = React.createClass({
 
    onChange: function() {
 	    this.setState({ url: getUrlState()});
+
+	    $( ".item-url" ).hover(
+		  function() {
+		    $( this ).find('.span-click').show();
+		  }, function() {
+		    $( this ).find('.span-click').hide();
+		  }
+		);
+
+	    $(".highlighted").removeClass("highlighted");
+		$(".item-url").first().addClass("highlighted");
 	}
 });
 
