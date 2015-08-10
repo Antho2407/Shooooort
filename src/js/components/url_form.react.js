@@ -7,6 +7,7 @@ var Header = React.createClass({
     	return {value: "", disabled: "disabled"};
 	},
 
+	// Handle Enter key
 	handleInput: function(event) {
         if (event.keyCode == 13) {
         	event.preventDefault();
@@ -14,6 +15,7 @@ var Header = React.createClass({
         }
     },
 
+    // Enable validate button 
 	handleChange: function(event) {
 		var input = event.target.value;
 		if(input==""){
@@ -24,6 +26,7 @@ var Header = React.createClass({
 	    this.setState({value: event.target.value});
 	},
 
+	// Validate button handler
 	handleClickAdd: function(input) {
 		UrlActions.add(input);
 	},	

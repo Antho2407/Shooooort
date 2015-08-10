@@ -6,7 +6,11 @@ var ServerActions = require('../actions/ServerActions.js');
 
 var url_call = "";
 
+// API class 
+// Handle API calls
 var ApiUrl = {
+
+    // Get short URL
     getShort: function (_url) {
         var that = this;
         url_call = URL_API + URL_API_ADD;
@@ -26,6 +30,7 @@ var ApiUrl = {
         } );
     },
 
+    // Get informations about URL
     getStats: function(_result){
         url_call = URL_API + _result.shortcode + "/" + URL_API_STATS;
         jQuery.ajax( {

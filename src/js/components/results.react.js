@@ -11,8 +11,10 @@ function getUrlState() {
   return UrlStore.getAll();
 }
 
+// Results component
 var Header = React.createClass({
 
+	// Clear List Handler
 	handleClickClear: function() {
 		UrlActions.clear();
 	},
@@ -71,6 +73,7 @@ var Header = React.createClass({
     	);
    },
 
+   // Event fired by any Store change
    onChange: function() {
 	    this.setState({ url: getUrlState()});
 

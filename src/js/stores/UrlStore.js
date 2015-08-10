@@ -8,28 +8,52 @@ var CHANGE_EVENT = 'change';
 var _url = [
       ];
 
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    var value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 function initialize(){
     _url = [];
+    
+    // Get cached URL if possible
+    var resultCache = localStorage.getObject('url');
+    if(resultCache !=null)
+      _url = resultCache;
+    
+    // Inform Views
     UrlStore.emitChange();
 }
 
+// Add a new URL
 function create(url) {
     _url.unshift(url);
     UrlStore.emitChange();
 }
 
+// Clear the URL list
 function clearList(){
     _url = [];
     UrlStore.emitChange();
 }
 
+// Store basic class - URL
 var UrlStore = assign({}, EventEmitter.prototype, {
+
+  updateCache: function(){
+      localStorage.setObject('url', _url);
+  },
 
   getAll: function() {
       return _url;
   },
 
   emitChange: function() {
+    this.updateCache();
     this.emit(CHANGE_EVENT);
   },
 
@@ -47,6 +71,7 @@ var UrlStore = assign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
+  // Check action type
   dispatcherIndex: AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
